@@ -9,7 +9,7 @@ import Welcome from './components/Welcome';
 import Footer from './components/Footer';
 import CreateArticle from './components/CreateArticle';
 import Login from './components/Login';
-
+import SingleArticle from './components/SingleArticle';
 
 const Home = () =>{
 
@@ -25,6 +25,7 @@ ReactDOM.render(
 		<Route path="/home" component ={Home} />
 		<Route path="/login" component ={Login} />
 		<Route path="/articles/create" component ={CreateArticle} />
+		<Route path="/article/:slug" component ={SingleArticle} />
 		<Footer/>
 	</div>	
 	</BrowserRouter>
