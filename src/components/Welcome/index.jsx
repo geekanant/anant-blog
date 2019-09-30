@@ -20,14 +20,7 @@ const Welcome = () =>{
 				  	<Article/>
 				  	<hr/>
 				  	<Article/>
-				  	<hr/>
-				  	<Article/>
-				  	<hr/>
-				  	<Article/>
-				  	<hr/>
-				  	<Article/>
-				  	<hr/>
-				  	<Article/>
+			
 				  	<nav className="flexbox mt-50 mb-50">
 					  <a className="btn btn-white disabled">
 					    <i className="ti-arrow-left fs-9 mr-4" /> Newer</a>
