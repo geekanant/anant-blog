@@ -1,4 +1,5 @@
 import React from 'react';
+import {validateAll} from 'indicative';
 
 class Signup extends React.Component{
 
@@ -20,6 +21,24 @@ class Signup extends React.Component{
     });
   }
 
+  handleSubmit=(event)=>{
+    event.preventDefault()
+    const data = this.state;
+
+    const rules = {
+      name:'required|string',
+      email:'required|email',
+      password:'required|string',
+    };
+
+    validateAll(data,rules)
+    .then(()=>{
+
+    }).catch(errors=>{
+      console.log(errors);
+    })
+  }
+
   render(){
     return(
       <div className="mh-fullscreen bg-img center-vh p-20" style={{ backgroundImage: 'url(assets/img/bg-girl.jpg)' }}>
@@ -27,7 +46,7 @@ class Signup extends React.Component{
           <h5 className="text-uppercase text-center">Register</h5>
           <br />
           <br />
-          <form className="form-type-material">
+          <form className="form-type-material" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input type="text" name="name" onChange={this.handleInputChange} className="form-control" placeholder="Username" />
             </div>
