@@ -48,7 +48,7 @@ class Signup extends React.Component{
         email:this.state.email,
         password:this.state.password
       }).then(response=>{
-        console.log(response);
+        this.props.history.push('/')
       }).catch(errors=>{
         
         const formattedErrors = {}
