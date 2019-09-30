@@ -50,7 +50,13 @@ class Signup extends React.Component{
       }).then(response=>{
         console.log(response);
       }).catch(errors=>{
-        console.log(errors);
+        
+        const formattedErrors = {}
+        formattedErrors['email'] = errors.response.data['email'][0];
+        this.setState({
+          errors:formattedErrors
+        })
+
       })
 
     }).catch(errors=>{
@@ -85,7 +91,7 @@ class Signup extends React.Component{
               <input type="text" name="email" onChange={this.handleInputChange} className="form-control" placeholder="Email address" />
               {
                 this.state.errors['email'] &&
-                <small className = "text-danger">{this.state.errors['name']}</small>
+                <small className = "text-danger">{this.state.errors['email']}</small>
               }
             </div>
             <div className="form-group">
