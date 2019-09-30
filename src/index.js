@@ -9,6 +9,7 @@ import Welcome from './components/Welcome';
 import Footer from './components/Footer';
 import CreateArticle from './components/CreateArticle';
 import Login from './components/Login';
+import Signup from './components/Signup';
 import SingleArticle from './components/SingleArticle';
 
 const Main = withRouter(({location}) =>{ //location is the prop
@@ -21,6 +22,7 @@ const Main = withRouter(({location}) =>{ //location is the prop
 		}
 		<Route exact path="/" component ={Welcome} />
 		<Route path="/login" component ={Login} />
+		<Route path="/signup" component ={Signup} />
 		<Route path="/articles/create" component ={CreateArticle} />
 		<Route path="/article/:slug" component ={SingleArticle} />
 		{
