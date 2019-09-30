@@ -1,5 +1,7 @@
 import React from 'react';
 import {validateAll} from 'indicative/validator';
+import axios from 'axios';
+import config from '../../config'
 
 class Signup extends React.Component{
 
@@ -31,10 +33,26 @@ class Signup extends React.Component{
       email:'required|email',
       password:'required|string|confirmed'
     };
+    
+    const messages = {
+      required:'The {{field}} is required',
+      'email.email':'The email is invalid',
+      'password_confired':'The password does not match'
+    }
 
-    validateAll(data,rules)
+    validateAll(data,rules,messages)
     .then(()=>{
-      console.log("sdaf");
+      
+      axios.post(`${config.apiUrl}/auth/register`,{
+        name:this.state.name,
+        email:this.state.email,
+        password:this.state.password
+      }).then(response=>{
+        console.log(response);
+      }).catch(errors=>{
+        console.log(errors);
+      })
+
     }).catch(errors=>{
       
       const formattedErrors = {}
