@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const Navbar = ()=>{
+const Navbar = ({authUser})=>{
 	return(
 
 		<nav className="topbar topbar-inverse topbar-expand-md topbar-sticky">
@@ -24,7 +24,7 @@ const Navbar = ()=>{
 		          <Link to="/articles/create" className="nav-link" href="create-article.html">Write new article</Link>
 		        </li>
 		        <li className="nav-item">
-		          <a className="nav-link" href="#">Hey Garry!
+		          <a className="nav-link" href="#">Hey {authUser&&authUser.user.name}
 		            <i className="fa fa-caret-down" />
 		          </a>
 		          <div className="nav-submenu">
@@ -32,12 +32,19 @@ const Navbar = ()=>{
 		            <a className="nav-link" href>Logout</a>
 		          </div>
 		        </li>
-		        <li className="nav-item">
-		          <Link to="/login" className="nav-link" >Login</Link>
-		        </li>
-		        <li className="nav-item">
-		          <Link to="/signup" className="nav-link" >Signup</Link>
-		        </li>
+		        {
+		        	!authUser &&
+		        	<li className="nav-item">
+			          <Link to="/login" className="nav-link" >Login</Link>
+			        </li>
+		        }
+		        {
+		        	!authUser &&
+			        <li className="nav-item">
+			          <Link to="/signup" className="nav-link" >Signup</Link>
+			        </li>	
+		        }
+		        
 		      </ul>
 		    </div>
 		  </div>
